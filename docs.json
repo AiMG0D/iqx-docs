@@ -2,10 +2,25 @@
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
   "name": "IQX",
+  "description": "Build fullstack apps by describing them. Docs for the IQX agent, services, deployments, and billing.",
   "colors": {
     "primary": "#3b82f6",
     "light": "#60a5fa",
     "dark": "#2563eb"
+  },
+  "appearance": {
+    "default": "dark",
+    "strict": false
+  },
+  "background": {
+    "color": {
+      "dark": "#1e1e1e",
+      "light": "#ffffff"
+    }
+  },
+  "styling": {
+    "eyebrows": "breadcrumbs",
+    "codeblocks": "dark"
   },
   "favicon": "/favicon.png",
   "navigation": {
@@ -52,6 +67,10 @@
       {
         "label": "Community",
         "href": "https://iqx.dev/dashboard?view=community"
+      },
+      {
+        "label": "Pricing",
+        "href": "https://iqx.dev/pricing"
       }
     ],
     "primary": {
