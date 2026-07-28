@@ -1,0 +1,124 @@
+---
+title: "Plans and credits"
+description: "What each plan includes, how credits are consumed, and how add-on packs work."
+---
+
+All prices are in euro and exclude VAT. VAT is added at checkout based on your
+billing country.
+
+## Plans
+
+| Plan | Price | Monthly credits | Built for |
+| --- | --- | --- | --- |
+| **Free** | €0 | 50 | Trying IQX and building in public |
+| **Pro** | €20 / month | 500 | Solo builders shipping real projects |
+| **Business** | €50 / month | 1,250 | Teams shipping together |
+| **Enterprise** | Custom | Unlimited | Organisations with scale or compliance needs |
+
+<Note>
+Enterprise accounts are provisioned by IQX, not self-serve. Get in touch through
+the enterprise page and we will set the account up for you.
+</Note>
+
+### What each plan adds
+
+<AccordionGroup>
+  <Accordion title="Free">
+    50 credits per month, DeepSeek V4 Flash (0.5 credits per iteration) and
+    IQX Spark (1 credit), and public projects. Enough to build and share something real.
+  </Accordion>
+  <Accordion title="Pro">
+    500 credits per month, the full mode range including Kimi K3, IQX Nova, Ultimate, and Claude Opus 5,
+    private projects, add-on credit packs, 5 collaborators plus 5 viewers, and
+    pay as you go deployments from €0.0569 per hour.
+  </Accordion>
+  <Accordion title="Business">
+    1,250 credits per month, every mode, 15 collaborators plus 5 viewers,
+    limitless deployment scaling, SSO, API access, team analytics, and priority
+    support.
+  </Accordion>
+  <Accordion title="Enterprise">
+    Unlimited credits, unlimited collaborators and viewers, volume deployment
+    pricing, dedicated support, custom deployment, and an SLA.
+  </Accordion>
+</AccordionGroup>
+
+## How credits are consumed
+
+Credits are charged per **agent iteration**, not per message, and the rate is set
+by the mode you build with:
+
+| Mode | Credits per iteration |
+| --- | --- |
+| DeepSeek V4 Flash | 0.5 |
+| IQX Spark | 1 |
+| DeepSeek V4 Pro | 2.5 |
+| Kimi K3 | 3 |
+| IQX Nova | 3 |
+| IQX Ultimate | 5 |
+| Claude Opus 5 | 5 |
+
+One prompt from you usually takes the agent **2 to 5 iterations**, so:
+
+```
+credits = mode rate x iterations
+```
+
+A prompt on IQX Nova that runs 4 iterations costs 12 credits. The same prompt on
+DeepSeek V4 Flash costs 2.
+
+### What 500 credits buys
+
+| Mode | Prompts per 500 credits |
+| --- | --- |
+| DeepSeek V4 Flash | ~200 to 500 |
+| IQX Spark | ~100 to 250 |
+| DeepSeek V4 Pro | ~40 to 100 |
+| Kimi K3 / IQX Nova | ~33 to 83 |
+| IQX Ultimate / Claude Opus 5 | ~20 to 50 |
+
+In practice you mix them: most work on Nova, small edits on Flash or Spark, and
+Ultimate saved for the hard problems. Mixed like that, 500 credits covers a lot.
+
+<Tip>
+Cost follows the mode, so pick deliberately. Full guidance in
+[Agent modes and credit cost](/agent-models).
+</Tip>
+
+Reading files, browsing your project, opening the preview, and running the app do
+not cost credits. Only agent iterations do.
+
+## Add-on credit packs
+
+Pro and Business accounts can buy extra credits at any time. Add-on credits are
+flat rate at **€0.06 per credit**, excluding VAT.
+
+| Pack | Price |
+| --- | --- |
+| 250 credits | €15 |
+| 500 credits | €30 |
+| 1,000 credits | €60 |
+| 2,000 credits | €120 |
+| 3,500 credits | €210 |
+| 5,000 credits | €300 |
+| 10,000 credits | €600 |
+
+Two things worth knowing:
+
+- **Add-on credits never expire.** They roll over indefinitely, unlike your
+  monthly plan credits which reset each cycle.
+- **Plan credits are spent first.** Your add-on balance is only drawn down once
+  the monthly allowance is used up, so buying early never wastes anything.
+
+## Changing plan
+
+Upgrading takes effect immediately, and any leftover add-on balance carries over
+to the new plan. Downgrading is scheduled: you keep the higher plan until the end
+of the current billing cycle, then move down.
+
+## Deployment costs
+
+Deployments are billed separately from credits, pay as you go, starting at
+**€0.0569 per hour** for a 1 CPU / 2 GB RAM / 30 GB instance. You are billed for
+what runs, so stopping a deployment stops its cost. See
+[Deployments](/deployments).

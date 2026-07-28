@@ -1,0 +1,69 @@
+---
+title: "What is IQX"
+description: "Describe an app in plain language and get a real, running fullstack project you can edit, deploy, and keep."
+---
+
+IQX turns a written description into a working fullstack application. You describe
+what you want, the agent writes the code, and the project starts running immediately
+in a real container, not a preview sandbox.
+
+The difference from a code generator is what comes with the app. A project on IQX
+gets its own private network, real backing services like PostgreSQL and Redis, a
+live preview URL, and a deployment path. You never wire those together by hand.
+
+## What you get with a project
+
+<CardGroup cols={2}>
+  <Card title="A real runtime" icon="server">
+    Every project runs in its own container with its own private network. Not a
+    simulation of a server, an actual one.
+  </Card>
+  <Card title="Self-hosted services" icon="database">
+    PostgreSQL, Redis, and MinIO object storage deploy into your project and
+    connect themselves. Credentials are injected, never pasted.
+  </Card>
+  <Card title="A live preview" icon="eye">
+    Your app is reachable at a preview URL from the moment it starts, and updates
+    as the agent edits it.
+  </Card>
+  <Card title="A way to ship" icon="rocket">
+    Deploy when it is ready, with replica autoscaling that follows your traffic.
+  </Card>
+</CardGroup>
+
+## How a session actually goes
+
+<Steps>
+  <Step title="You describe the app">
+    In plain language. "An internal dashboard with team accounts and role based
+    access" is enough to start.
+  </Step>
+  <Step title="The agent builds it">
+    It picks the stack, scaffolds the project, writes the code, and starts the
+    dev server. You watch it work rather than waiting for a finished dump.
+  </Step>
+  <Step title="You iterate in the Studio">
+    Ask for changes in chat, edit files directly, or work visually on the canvas.
+    Every change reloads in the preview.
+  </Step>
+  <Step title="You ship it">
+    Deploy the project, attach a custom domain, and let it scale.
+  </Step>
+</Steps>
+
+## Where to go next
+
+<CardGroup cols={2}>
+  <Card title="Quickstart" icon="play" href="/quickstart">
+    Build and run your first project.
+  </Card>
+  <Card title="The Studio" icon="code" href="/studio">
+    Chat, files, preview, and canvas.
+  </Card>
+  <Card title="Services" icon="database" href="/services">
+    Databases, cache, and object storage.
+  </Card>
+  <Card title="Plans and credits" icon="credit-card" href="/plans-and-credits">
+    What a prompt costs and what each plan includes.
+  </Card>
+</CardGroup>

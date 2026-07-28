@@ -1,0 +1,63 @@
+---
+title: "Services"
+description: "Self-hosted PostgreSQL, Redis, and object storage that deploy into your project and connect themselves."
+---
+
+A real app needs more than code. IQX lets you deploy backing services directly
+into your project, inside your project's own private network, with credentials
+wired in automatically.
+
+There are no forced integrations and no third-party accounts to create. The
+services run for you, on our infrastructure, as part of your project.
+
+## What you can deploy
+
+<CardGroup cols={3}>
+  <Card title="PostgreSQL" icon="database">
+    The default relational database. Ask the agent for a database and this is
+    what you get unless you say otherwise.
+  </Card>
+  <Card title="Redis" icon="bolt">
+    Cache, sessions, queues, and anything that needs to be fast and temporary.
+  </Card>
+  <Card title="MinIO" icon="box">
+    S3-compatible object storage for uploads, images, and files.
+  </Card>
+</CardGroup>
+
+Other engines including MySQL, MariaDB, MongoDB, and vector stores are available
+from the service catalogue in the Studio.
+
+## How connection works
+
+This is the part people expect to be painful. It is not.
+
+When a service starts, IQX injects its credentials into your app as environment
+variables. Your code reads `DATABASE_URL` and it is already correct. There is no
+copying passwords, no `.env` editing, and no first-run migration debugging.
+
+<Note>
+Services are reachable from your app over the project's **internal** network
+address. An external address exists too, for connecting a local SQL client while
+you develop.
+</Note>
+
+## Autoscaling
+
+Services scale by replica, following your traffic rather than a fixed size you
+guessed at signup. Idle projects scale down, busy ones scale up.
+
+## Managing services
+
+Open the **Services** panel in the Studio to see everything running in the
+project. Each service shows its status, its resource allocation, its connection
+details, and its environment keys.
+
+The same services appear as nodes on the **canvas**, where you can see how they
+connect to your app visually and link them to other parts of the project.
+
+<Warning>
+Treat connection strings as secrets. The Services panel masks credentials behind
+a show and hide toggle, and deployed apps receive them as environment variables
+rather than in source code. Never commit them to a repository.
+</Warning>
