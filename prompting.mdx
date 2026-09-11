@@ -1,0 +1,51 @@
+---
+sidebarTitle: "Prompting"
+title: "Work effectively with the agent"
+description: "Give IQX clear goals, relevant context and testable acceptance criteria for builds, edits and debugging."
+---
+
+A useful prompt describes an outcome the agent can implement and you can verify. Include relevant context without asking for many unrelated changes at once.
+
+## Give the agent four things
+
+1. **The user:** who the feature is for.
+2. **The workflow:** what that person needs to do.
+3. **The constraints:** what must stay the same and required technologies.
+4. **The checks:** how you will know the change works.
+
+```text
+Add a booking form for customers of a bike repair shop. Ask for a name,
+email, preferred date and repair description. Store submissions in the
+project database. Keep the existing navigation. Validate required fields,
+show a clear success state and prevent duplicate submissions on double-click.
+```
+
+## For an existing project
+
+Ask the agent to inspect the implementation first. Mention the route, screen or files. Separate a visual adjustment from a data-model change when they can be reviewed independently.
+
+```text
+Inspect the customer list and its data-loading code. Add search by name
+without changing the customer schema. Preserve pagination. Check empty
+results, loading and error states, then explain what changed.
+```
+
+## For a bug
+
+Provide reproduction steps, expected behavior, actual behavior and the first useful error. Remove tokens and customer data from logs.
+
+```text
+On /bookings, submit a valid form. I expect a confirmation, but the request
+returns 500. Inspect the handler and service logs. Find the cause, fix it
+and check that invalid inputs still return a useful error.
+```
+
+## For a design change
+
+Name the target surface and describe a visible difference: spacing, hierarchy, color, responsive behavior or a reference. For canvas work, identify the frame. See [Canvas](/canvas) and [Figma handoff](/figma).
+
+## Control scope and spending
+
+A prompt can take many iterations. Choose the [model and effort](/agent-models) deliberately, inspect progress, and split large projects into milestones. No fixed number of prompts is guaranteed by a credit allowance.
+
+After each milestone, test the app, inspect the changed code and retain a checkpoint. Review [security responsibilities](/security) and the [publishing checklist](/deployments) before production.

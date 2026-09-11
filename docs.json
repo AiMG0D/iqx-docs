@@ -1,15 +1,15 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "IQX",
-  "description": "Build fullstack apps by describing them. Docs for the IQX agent, services, deployments, and billing.",
+  "name": "IQX Docs",
+  "description": "Learn IQX Studio: build web and Expo mobile apps with AI, work on the canvas, connect services, publish projects and manage credits.",
   "colors": {
-    "primary": "#3b82f6",
-    "light": "#60a5fa",
-    "dark": "#2563eb"
+    "primary": "#3456D8",
+    "light": "#91A7FF",
+    "dark": "#2946B5"
   },
   "appearance": {
-    "default": "dark",
+    "default": "light",
     "strict": false
   },
   "background": {
@@ -22,40 +22,65 @@
     "eyebrows": "breadcrumbs",
     "codeblocks": "dark"
   },
-  "favicon": "/favicon.png",
+  "favicon": "/images/favicon.png",
   "navigation": {
     "tabs": [
       {
         "tab": "Documentation",
         "groups": [
           {
-            "group": "Get started",
+            "group": "Start here",
             "pages": [
               "introduction",
-              "quickstart"
-            ]
-          },
-          {
-            "group": "Building",
-            "pages": [
+              "quickstart",
               "studio",
-              "agent-models",
-              "services",
-              "import"
+              "prompting"
             ]
           },
           {
-            "group": "Shipping",
+            "group": "Build your app",
+            "pages": [
+              "web-apps",
+              "mobile-apps",
+              "canvas",
+              "agent-models"
+            ]
+          },
+          {
+            "group": "Bring your tools",
+            "pages": [
+              "import",
+              "github-sync",
+              "integrations",
+              "figma",
+              "mcp-and-ai-access"
+            ]
+          },
+          {
+            "group": "Data and services",
+            "pages": [
+              "services",
+              "databases",
+              "object-storage",
+              "environment-variables"
+            ]
+          },
+          {
+            "group": "Publish and share",
             "pages": [
               "deployments",
+              "custom-domains",
+              "collaboration",
               "marketplace"
             ]
           },
           {
-            "group": "Account",
+            "group": "Account and support",
             "pages": [
               "plans-and-credits",
-              "collaboration"
+              "usage-and-billing",
+              "security",
+              "troubleshooting"
             ]
           }
         ]
@@ -81,7 +106,32 @@
   },
   "footer": {
     "socials": {
-      "website": "https://iqx.dev"
+      "website": "https://iqx.dev",
+      "github": "https://github.com/AiMG0D/iqx-docs",
+      "x": "https://x.com/iqxide",
+      "discord": "https://discord.com/invite/iqx"
+    }
+  },
+  "logo": {
+    "light": "/images/logo-light.png",
+    "dark": "/images/logo-dark.png",
+    "href": "/introduction"
+  },
+  "fonts": {
+    "family": "Inter"
+  },
+  "search": {
+    "prompt": "Search IQX guides..."
+  },
+  "seo": {
+    "indexing": "navigable",
+    "metatags": {
+      "og:site_name": "IQX Docs",
+      "og:image": "https://docs.iqx.dev/images/social-card.png",
+      "og:image:width": "1200",
+      "og:image:height": "630",
+      "twitter:card": "summary_large_image",
+      "twitter:image": "https://docs.iqx.dev/images/social-card.png"
     }
   }
 }

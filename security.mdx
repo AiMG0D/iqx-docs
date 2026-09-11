@@ -1,0 +1,37 @@
+---
+sidebarTitle: "Security"
+title: "Security and responsible project setup"
+description: "Understand the security boundaries of IQX and the application checks to complete before publishing."
+---
+
+IQX provides platform access controls and isolated project runtime infrastructure. Your application's security also depends on its generated or imported code, configuration, data access and connected providers.
+
+Read the current [IQX security page](https://iqx.dev/security) for platform information. A documentation page is not a certification, audit report or contractual commitment.
+
+## Protect project access
+
+Use your own account and grant teammates access through [Collaboration](/collaboration). Choose the minimum role they need and remove access when it is no longer required. Do not share owner credentials or assume a project link grants permission.
+
+Review which repository, provider account and resources an integration can access. Revoke or rotate credentials when their owner, purpose or exposure changes.
+
+## Keep secrets out of clients
+
+Store private credentials in the appropriate [environment](/environment-variables) or [integration connection](/integrations). Do not place them in browser bundles, mobile applications, public source, screenshots or prompts.
+
+Treat any exposed token as compromised: revoke or rotate it at its provider and update the consuming service. Merely deleting it from the latest source version does not remove it from repository history or earlier builds.
+
+## Test application authorization
+
+Before publishing, verify that signed-out users cannot reach private actions and that one user cannot access another user's records by changing an identifier. Validate inputs on the server and check authorization for uploads, downloads, database operations and administrative routes.
+
+Review generated dependencies and code, especially authentication, payment webhooks and data migrations. AI-generated output still needs testing and review appropriate to the app and its data.
+
+## Understand infrastructure boundaries
+
+Projects use container-based runtime isolation and network controls. Containers share a host kernel; do not treat that architecture as a promise of a dedicated physical machine. Stateful data requires a suitable backup and recovery plan.
+
+Do not infer SOC 2, ISO certification, SSO availability or a regulated-data agreement from a plan name. Confirm any required contractual or technical control with IQX before relying on it.
+
+## Report a security issue
+
+Send a suspected vulnerability to [security@iqx.dev](mailto:security@iqx.dev). Include the affected URL or feature, a concise reproduction and the observed impact. Remove tokens and other users' private data from the report. For ordinary preview or build failures, use [Troubleshooting](/troubleshooting).

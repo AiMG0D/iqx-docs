@@ -1,63 +1,41 @@
 ---
-title: "Services"
-description: "Self-hosted PostgreSQL, Redis, and object storage that deploy into your project and connect themselves."
+sidebarTitle: "Services overview"
+title: "Services and project infrastructure"
+description: "Add and operate the application, database, cache and storage services your IQX project needs."
 ---
 
-A real app needs more than code. IQX lets you deploy backing services directly
-into your project, inside your project's own private network, with credentials
-wired in automatically.
+The **Services** panel shows the infrastructure attached to a project. Use it to inspect status, configure an individual service and understand which application depends on it.
 
-There are no forced integrations and no third-party accounts to create. The
-services run for you, on our infrastructure, as part of your project.
+## Choose the right service
 
-## What you can deploy
+| Service | Purpose | Next guide |
+| --- | --- | --- |
+| Application | Runs app or backend code | [Deployments](/deployments) |
+| PostgreSQL | Stores structured application data | [Databases](/databases) |
+| Redis | Cache, queues and temporary state | [Databases](/databases) |
+| MinIO | S3-compatible object storage | [Object storage](/object-storage) |
+| Custom service | A supported service template for a specific workload | Review the available catalog and configuration |
 
-<CardGroup cols={3}>
-  <Card title="PostgreSQL" icon="database">
-    The default relational database. Ask the agent for a database and this is
-    what you get unless you say otherwise.
-  </Card>
-  <Card title="Redis" icon="bolt">
-    Cache, sessions, queues, and anything that needs to be fast and temporary.
-  </Card>
-  <Card title="MinIO" icon="box">
-    S3-compatible object storage for uploads, images, and files.
-  </Card>
-</CardGroup>
+Availability depends on the service catalog and project configuration. A design element on the canvas is not proof that a corresponding running service exists.
 
-Other engines including MySQL, MariaDB, MongoDB, and vector stores are available
-from the service catalogue in the Studio.
+## Add a service
 
-## How connection works
+Open **Services** in Studio and select **Add a service**. Choose an available type, give it a recognizable name and review its required configuration. Wait for the service status to indicate that it is ready before depending on it in the app.
 
-This is the part people expect to be painful. It is not.
+Use the connection details supplied for that service. Configure the consuming application to use them and restart or redeploy it when required. Then test an actual request, database query or upload.
 
-When a service starts, IQX injects its credentials into your app as environment
-variables. Your code reads `DATABASE_URL` and it is already correct. There is no
-copying passwords, no `.env` editing, and no first-run migration debugging.
+## Inspect and operate
 
-<Note>
-Services are reachable from your app over the project's **internal** network
-address. An external address exists too, for connecting a local SQL client while
-you develop.
-</Note>
+A service's detail panel provides relevant controls such as **General**, **Environment**, **Domains**, **Deployments**, **Logs** and **Monitoring**. The available tabs depend on the service type.
 
-## Autoscaling
+Use logs to investigate startup failures and monitoring to understand resource use. Check the selected service before changing variables or restarting: an application's settings and a database's settings are not interchangeable.
 
-Services scale by replica, following your traffic rather than a fixed size you
-guessed at signup. Idle projects scale down, busy ones scale up.
+## Plan persistence and capacity
 
-## Managing services
-
-Open the **Services** panel in the Studio to see everything running in the
-project. Each service shows its status, its resource allocation, its connection
-details, and its environment keys.
-
-The same services appear as nodes on the **canvas**, where you can see how they
-connect to your app visually and link them to other parts of the project.
+Stateful services need a deliberate data plan. Keep schema migrations, backups, restore procedures and retention requirements in mind. Do not assume that creating a database also configures automatic backups or that adding application replicas safely scales a database.
 
 <Warning>
-Treat connection strings as secrets. The Services panel masks credentials behind
-a show and hide toggle, and deployed apps receive them as environment variables
-rather than in source code. Never commit them to a repository.
+Before deleting a service or changing persistent storage, identify the data it holds and verify a usable backup. Stopping an application and deleting a database are different operations.
 </Warning>
+
+Running production services can incur usage charges separately from the AI plan. Review [Usage and billing](/usage-and-billing), and use [Environment variables](/environment-variables) to keep connection secrets out of client code.

@@ -1,0 +1,37 @@
+---
+sidebarTitle: "Usage and billing"
+title: "Understand usage and billing"
+description: "Separate AI credits, production resources and provider charges when estimating and reviewing IQX costs."
+---
+
+There are three main cost categories: work performed by the AI agent, infrastructure running your production app, and services billed by external providers. Review each category when estimating a project budget.
+
+## AI credits
+
+A run consumes credits according to the selected model's effective rate and billable work. Active discounts or rate changes are shown in Studio. Image generation, image editing and 3D generation can add tool-specific charges.
+
+A long prompt is not a reliable cost estimate, and one prompt can require multiple iterations. Keep work focused, inspect the result and check usage history for the actual charge. See [Agent models](/agent-models) and [Plans and credits](/plans-and-credits).
+
+## Production resources
+
+Publishing an app can start metered production resource usage. CPU and memory charges depend on allocated resources and running time, rather than the number of agent prompts.
+
+The public pricing display currently lists approximately **€0.0285 per vCPU-hour**, **€0.0142 per GB-hour of RAM** and **€0.20 per GB-month of storage**. These are reference rates, not an all-inclusive quote. Review [current pricing](https://iqx.dev/pricing), the configured resources and checkout tax treatment for your deployment.
+
+<Note>
+Development preview activity is separate from the production compute meter. Stopping the editing agent does not stop an already running production application. Pausing an app does not establish that all attached storage, databases or provider services are free.
+</Note>
+
+## External providers
+
+Email, SMS, payments, Expo build services and other connected providers apply their own plans, quotas and usage charges. Supplying an API key to IQX does not transfer the provider's subscription or waive its fees.
+
+Use provider test modes while developing where available, and check their dashboards for usage that does not appear in the IQX credit balance.
+
+## Review an unexpected charge
+
+Identify the category first. For an agent charge, record the run time, selected model and visible usage. For hosting, inspect running production services and their resource settings. For a provider charge, match the provider's event or invoice with the app action that triggered it.
+
+Check whether you are comparing prices with the same tax basis and billing interval. Avoid estimating a monthly hosting bill from an hourly number without accounting for runtime and every configured resource.
+
+Use the account billing controls for the available subscription and invoice actions. If the displayed balance or invoice still appears wrong, contact support with the account, date and relevant reference, without sending payment-card details or credentials.

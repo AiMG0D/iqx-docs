@@ -1,69 +1,47 @@
 ---
-title: "What is IQX"
-description: "Describe an app in plain language and get a real, running fullstack project you can edit, deploy, and keep."
+sidebarTitle: "Introduction"
+title: "What is IQX Studio?"
+description: "Build full-stack web and Expo mobile apps with an AI agent, editable code, a visual canvas and connected services."
 ---
 
-IQX turns a written description into a working fullstack application. You describe
-what you want, the agent writes the code, and the project starts running immediately
-in a real container, not a preview sandbox.
+**IQX Studio is the browser-based AI development workspace at [iqx.dev](https://iqx.dev).** Describe an application, work with the agent on its source code, inspect it in a live preview, and publish when it is ready.
 
-The difference from a code generator is what comes with the app. A project on IQX
-gets its own private network, real backing services like PostgreSQL and Redis, a
-live preview URL, and a deployment path. You never wire those together by hand.
+A project can include a web app, an Expo / React Native mobile app, a backend and data services. Work with code and the visual canvas in the same workspace. The agent can help create files, run commands, investigate errors and make follow-up changes.
 
-## What you get with a project
+<Note>
+IQX is in Beta. Features can depend on your plan, project configuration and rollout. Review and test generated code before using it in production.
+</Note>
 
-<CardGroup cols={2}>
-  <Card title="A real runtime" icon="server">
-    Every project runs in its own container with its own private network. Not a
-    simulation of a server, an actual one.
-  </Card>
-  <Card title="Self-hosted services" icon="database">
-    PostgreSQL, Redis, and MinIO object storage deploy into your project and
-    connect themselves. Credentials are injected, never pasted.
-  </Card>
-  <Card title="A live preview" icon="eye">
-    Your app is reachable at a preview URL from the moment it starts, and updates
-    as the agent edits it.
-  </Card>
-  <Card title="A way to ship" icon="rocket">
-    Deploy when it is ready, with replica autoscaling that follows your traffic.
-  </Card>
-</CardGroup>
-
-## How a session actually goes
-
-<Steps>
-  <Step title="You describe the app">
-    In plain language. "An internal dashboard with team accounts and role based
-    access" is enough to start.
-  </Step>
-  <Step title="The agent builds it">
-    It picks the stack, scaffolds the project, writes the code, and starts the
-    dev server. You watch it work rather than waiting for a finished dump.
-  </Step>
-  <Step title="You iterate in the Studio">
-    Ask for changes in chat, edit files directly, or work visually on the canvas.
-    Every change reloads in the preview.
-  </Step>
-  <Step title="You ship it">
-    Deploy the project, attach a custom domain, and let it scale.
-  </Step>
-</Steps>
-
-## Where to go next
+## Choose your starting point
 
 <CardGroup cols={2}>
-  <Card title="Quickstart" icon="play" href="/quickstart">
-    Build and run your first project.
-  </Card>
-  <Card title="The Studio" icon="code" href="/studio">
-    Chat, files, preview, and canvas.
-  </Card>
-  <Card title="Services" icon="database" href="/services">
-    Databases, cache, and object storage.
-  </Card>
-  <Card title="Plans and credits" icon="credit-card" href="/plans-and-credits">
-    What a prompt costs and what each plan includes.
-  </Card>
+  <Card title="Build your first app" icon="play" href="/quickstart">Start with a small working feature, inspect it and make your first change.</Card>
+  <Card title="Bring an existing project" icon="file-import" href="/import">Import a GitHub repository or ZIP archive and review its runtime setup.</Card>
+  <Card title="Build for mobile" icon="mobile-screen" href="/mobile-apps">Work with Expo and React Native, with a backend shared with your web app.</Card>
+  <Card title="Explore Studio" icon="table-columns" href="/studio">Understand chat, files, previews, canvas and service controls.</Card>
 </CardGroup>
+
+## How the pieces fit together
+
+| Part | Purpose | Guide |
+| --- | --- | --- |
+| AI agent | Reading and changing code, running tools and checking results | [Prompting](/prompting) |
+| Web app | Browser interfaces, routes and user workflows | [Web apps](/web-apps) |
+| Mobile app | Expo / React Native screens and device workflows | [Mobile apps](/mobile-apps) |
+| Canvas | Organizing previews, design elements and service relationships | [Canvas](/canvas) |
+| Backend and data | Server logic, PostgreSQL, Redis and object storage | [Services](/services) |
+| Production | Publishing a version at a public URL | [Deployments](/deployments) |
+
+Preview and production are separate stages. Editing code in Studio does not mean a production release has succeeded. Check the publish status and test the public URL after each release.
+
+## Build, inspect, improve
+
+Start with one user and one workflow. Describe what the user should be able to do, what data is needed and what a successful result looks like. Let the agent work, then test the result yourself. Ask for the next focused change after the first workflow works.
+
+You can connect an existing repository, configure supported external services and collaborate with other people. These connections have their own permissions and setup requirements; a provider logo alone does not grant access to an account.
+
+## Understand the cost
+
+Free includes **50 credits per month** for public projects. Paid plans add credits and capabilities. Agent work uses credits, some generated media has separate credit charges, and production compute is billed by usage. Read [Plans and credits](/plans-and-credits) and [Deployment usage](/usage-and-billing).
+
+For account access, preview errors or failed builds, start with [Troubleshooting](/troubleshooting).

@@ -1,0 +1,39 @@
+---
+sidebarTitle: "Studio"
+title: "The Studio workspace"
+description: "Find your way around IQX chat, files, previews, canvas, services and publishing controls."
+---
+
+Open a project from the dashboard to continue working in Studio. The available panels depend on the project and your access.
+
+## Where to work
+
+| Area | Use it to |
+| --- | --- |
+| Chat | Describe changes, give context and follow the agent's work |
+| Files and editor | Inspect source and make direct edits |
+| Preview | Test the running web app or mobile experience |
+| Canvas | Arrange previews, design elements and service relationships |
+| Services | Inspect status, configuration, logs and resource usage |
+| GitHub | Choose a repository and branch, then sync project source |
+| Publish | Prepare a production release or open mobile publishing |
+
+## Work with the agent
+
+State the outcome and constraints. Name the screen, route or file when you know it. Attach relevant visual context when the composer supports it. Use the model and reasoning controls to choose an available mode.
+
+Read the progress instead of judging success only by the final message. A reported change still needs a working preview and relevant tests. If you stop a run, inspect what was already changed before starting another task.
+
+## Work directly with code
+
+Use the file tree and editor to understand the implementation. Check configuration and dependency changes along with UI changes. Save edits and verify them in the preview. Avoid having a manual edit and an agent edit overwrite the same section simultaneously.
+
+Files, the development server and a published release are different states. Saving source does not prove the build passed or production uses the new version.
+
+## Inspect the running project
+
+The [canvas](/canvas) can organize multiple surfaces, including web/mobile views and services. If a view appears blank, check the relevant service's status and logs before repeatedly asking the agent to rebuild it.
+
+Keep a recoverable checkpoint before broad changes using [GitHub sync](/github-sync). Verify the repository, branch and scope before syncing. Use [collaboration controls](/collaboration) to grant access rather than sharing your login.
+
+Read [Prompting](/prompting) for task examples and [Troubleshooting](/troubleshooting) for runtime issues.

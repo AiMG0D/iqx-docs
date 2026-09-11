@@ -1,0 +1,35 @@
+---
+sidebarTitle: "Databases and Redis"
+title: "Databases and Redis"
+description: "Connect application code to PostgreSQL or Redis and manage schema, persistence and access deliberately."
+---
+
+Use PostgreSQL for durable, structured records such as accounts, orders and bookings. Use Redis for workloads such as caching, queues and temporary state. Choose based on the data's role, not just the name of a service.
+
+## Connect PostgreSQL
+
+1. Open [Services](/services) and add an available PostgreSQL service, or identify the existing database your app should use.
+2. Wait for the database to become ready and open its connection details.
+3. Configure the app's server-side database connection using the supplied endpoint and credentials.
+4. Inspect the project's database library and migration commands.
+5. Apply the required schema changes to the intended database, then verify a small read and write through the application.
+
+Projects use different database libraries. Do not assume every imported app uses the same ORM, connection-variable name or migration command. Read the package scripts and existing code before running a migration.
+
+## Keep connections on the server
+
+Use an internal service endpoint for supported service-to-service access. An internal hostname may not resolve from your laptop or a user's browser. Use an external connection only when one is explicitly provided and appropriate for your access requirements.
+
+Store credentials in [environment variables](/environment-variables). A mobile app or browser should call an authorized backend API rather than receive the database's administrative password.
+
+## Use Redis for the right state
+
+Configure the Redis endpoint expected by the consuming library and test the intended operation. Decide whether keys expire and how the application behaves when a cache entry is missing. A queue needs a working consumer as well as a producer.
+
+Do not treat a default cache configuration as a backup strategy or as the only durable copy of important records.
+
+## Change data safely
+
+Test migrations with representative data before changing production. Take or verify an appropriate backup, identify destructive statements and plan recovery. A successful source import or GitHub sync does not include database contents.
+
+If a connection fails, check service readiness, endpoint, credentials, network reachability and the app's active environment. If a query fails with a missing-table error, inspect schema state rather than repeatedly recreating the service. See [Troubleshooting](/troubleshooting).

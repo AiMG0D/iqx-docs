@@ -1,0 +1,39 @@
+---
+sidebarTitle: "Integrations"
+title: "Connect external services"
+description: "Add provider credentials in IQX and activate supported integrations for the projects that need them."
+---
+
+Integrations connect a project to services you already use. IQX provides built-in connection definitions for the providers below. A connection supplies authorized access; the app still needs code and configuration for the intended workflow.
+
+| Provider | Common use | Credentials or configuration |
+| --- | --- | --- |
+| Resend | Transactional email | API key; optional sender address |
+| SendGrid | Transactional email | API key; optional sender address |
+| Twilio | SMS and verification | Account SID, API key and secret; optional Verify service SID |
+| Stripe | Payments | Secret and publishable keys; webhook secret when needed |
+| Slack | Workspace notifications | Bot token; signing secret or channel where needed |
+| Notion | Access permitted pages and databases | Integration token; optional database ID |
+| Figma | Access permitted design files | Access token; optional file key |
+
+## Connect and activate
+
+1. Open **Integrations** in the [dashboard](https://iqx.dev/dashboard).
+2. Select a provider and enter credentials in its connection form.
+3. Save the connection and check its status.
+4. Activate the integration for the project that should use it through the project's integration controls.
+5. Implement and test the specific app action, such as sending a test email or handling a payment webhook.
+
+An account connection and project activation are distinct. The project owner controls activation. A connected provider can still reject requests because of missing permissions, an unverified sender, an incorrect webhook or a provider account restriction.
+
+## Configure the provider too
+
+Use test credentials and sandbox modes where the provider supports them. Confirm sender verification for email, permitted resources for Notion, bot installation and scopes for Slack, and webhook signatures for Stripe.
+
+Store secret keys through the connection form or appropriate [server environment](/environment-variables). Publishable keys are designed for particular client use; secret keys are not. Do not paste credentials into an agent prompt or commit them to GitHub.
+
+## Troubleshoot a connection
+
+Check both the saved IQX connection and the provider's own dashboard. Confirm that the token is valid, has access to the intended resource and is active in the correct test or production environment. After rotating a token, update the saved configuration and verify the project again.
+
+External providers apply their own charges and quotas. For design import behavior, see [Figma](/figma). For the distinction between built-in integrations and MCP, see [MCP and AI access](/mcp-and-ai-access).

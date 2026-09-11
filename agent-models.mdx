@@ -1,113 +1,56 @@
 ---
-title: "Agent modes and credit cost"
-description: "The seven modes you can build with, what each one costs per iteration, and how to pick without wasting credits."
+sidebarTitle: "Agent models"
+title: "Agent models and credits"
+description: "Choose an IQX model, understand reasoning effort and estimate agent credit usage."
 ---
 
-IQX lets you choose which model does the work. That choice is the single biggest
-lever on what you spend, because **credits are charged per iteration, and the rate
-is set by the mode you picked**.
+IQX Studio lets you select the model that performs agent work. Start with a focused task, check the model's displayed rate and review the result before increasing the scope.
 
-## The modes
+## Available models
 
-| Mode | Credits per iteration | Available on | Best for |
-| --- | --- | --- | --- |
-| **DeepSeek V4 Flash** | 0.5 | Free | Fast agentic edits, quick iteration |
-| **IQX Spark** | 1 | Free | Focused edits and lightweight builds |
-| **DeepSeek V4 Pro** | 2.5 | Pro | Larger coding tasks at low cost |
-| **Kimi K3** | 3 | Pro | Frontend and design specialist |
-| **IQX Nova** | 3 | Pro | The balanced default for polished product work |
-| **IQX Ultimate** | 5 | Pro | Deep autonomy for ambitious execution |
-| **Claude Opus 5** | 5 | Pro | The hardest agentic work |
+This table records the baseline catalog reviewed on September 11, 2026. Paid access includes Pro and higher plans. The **Studio model picker** shows current availability, effective rates and any active discounts.
+
+| Model | Baseline credits per iteration | Minimum plan |
+| --- | ---: | --- |
+| DeepSeek V4 Flash | 0.5 | Free |
+| DeepSeek V4 Pro | 1.5 | Free |
+| GPT-5.6 Luna | 0.25 | Free |
+| Claude Haiku 4.5 | 1 | Free |
+| Kimi K3 | 3 | Pro |
+| Claude Sonnet 5 | 3 | Pro |
+| Claude Opus 4.8 | 5 | Pro |
+| Claude Opus 5 | 5 | Pro |
+| GPT-5.6 Terra | 2.5 | Pro |
+| GPT-5.6 Sol | 5 | Pro |
+
+## How credits are calculated
+
+An agent run can contain several billable iterations. One prompt is not necessarily one iteration: the agent may inspect files, make changes and respond to the result over several steps.
+
+For a run using one rate, the basic calculation is:
+
+```text
+Agent credits = effective model rate × billable iterations
+```
+
+For example, four billable iterations at 1.5 credits cost 6 credits before any separately charged tools. This is an illustration, not a promised cost per prompt.
 
 <Note>
-Free accounts build with **DeepSeek V4 Flash** and **IQX Spark**. Everything else
-unlocks on Pro and above. See [Plans and credits](/plans-and-credits).
+Image generation, image editing and 3D generation can carry additional credit charges. Production hosting and external provider bills are separate from agent credits. See [Usage and billing](/usage-and-billing).
 </Note>
 
-## What an iteration is
-
-An iteration is one turn of agent work: it reads, decides, and acts. A single
-prompt from you almost never takes one iteration. **A typical prompt runs 2 to 5
-iterations**, depending on how much the agent has to read and how many files it
-has to change.
-
-So the cost of a prompt is:
-
-```
-credits = mode rate x iterations
-```
-
-A prompt on IQX Nova (3 credits) that takes 4 iterations costs 12 credits. The
-same prompt on DeepSeek V4 Flash (0.5) costs 2.
-
-<Tip>
-Reading files, opening the preview, browsing your project, and running the app do
-not cost credits. Only agent iterations do.
-</Tip>
-
-## What 500 credits actually buys
-
-Pro includes 500 credits per month. At 2 to 5 iterations per prompt, that is
-roughly:
-
-| Mode | Credits per prompt | Prompts per 500 credits |
-| --- | --- | --- |
-| DeepSeek V4 Flash | 1 to 2.5 | ~200 to 500 |
-| IQX Spark | 2 to 5 | ~100 to 250 |
-| DeepSeek V4 Pro | 5 to 12.5 | ~40 to 100 |
-| Kimi K3 / IQX Nova | 6 to 15 | ~33 to 83 |
-| IQX Ultimate / Claude Opus 5 | 10 to 25 | ~20 to 50 |
-
-Most people do not spend a month on one mode. A realistic month is the bulk of
-your work on Nova, small edits dropped to Flash or Spark, and Ultimate saved for
-the few problems that genuinely need it. Mixed like that, 500 credits covers a
-lot of building.
+Low balances can temporarily restrict premium models even on a paid plan. Check the message in Studio and the remaining balance before changing subscriptions to resolve a model-access issue.
 
 ## Reasoning effort
 
-Separately from the mode, you set how hard the agent thinks before it acts:
+The effort selector controls the reasoning setting sent to the selected model. Supported choices vary by model and can include Low, Medium, High, XHigh and Max. Use the choices actually shown in Studio.
 
-| Effort | What it does |
-| --- | --- |
-| **Low** | Fastest, lowest token spend. Best for small scoped tasks |
-| **Medium** | Balanced speed, cost, and reasoning depth |
-| **High** | Strong reasoning, the provider default for coding work |
+For a small copy or layout change, keep the request narrow. For a difficult bug, provide the reproduction steps and relevant context before increasing effort. More effort does not guarantee a correct answer or a lower total run cost.
 
-Effort does not change the per-iteration rate, but higher effort means more
-thinking tokens per iteration and often fewer wasted iterations on hard problems.
-On a trivial edit it is pure overhead; on an ambiguous one it can save you a
-failed attempt.
+## Keep a run focused
 
-## Picking well
+Describe the expected outcome, identify the affected page or file, and say how to verify success. Inspect the first result before asking for several additional features. If a run heads in the wrong direction, stop it, review changes and clarify the request.
 
-<AccordionGroup>
-  <Accordion title="Rename a button, fix copy, adjust spacing">
-    **DeepSeek V4 Flash or IQX Spark, low effort.** Around 1 to 5 credits. This is
-    mechanical work, and a frontier model adds cost without adding quality.
-  </Accordion>
-  <Accordion title="Add a feature to an existing app">
-    **IQX Nova, medium effort.** Around 6 to 15 credits. The agent has to read your
-    code and fit into it, which needs real comprehension but not deep planning.
-  </Accordion>
-  <Accordion title="Build a frontend or polish a design">
-    **Kimi K3, medium effort.** Same 3 credit rate as Nova, tuned for interface and
-    design work.
-  </Accordion>
-  <Accordion title="Design the data model, or fix a bug you cannot reproduce">
-    **IQX Ultimate or Claude Opus 5, high effort.** Around 10 to 25 credits. These
-    are the cases where the extra credits buy a genuinely better answer, and where
-    a cheap mode often costs more by failing twice first.
-  </Accordion>
-</AccordionGroup>
+Opening files and inspecting a preview are different from asking the agent to perform work. Check your balance and usage history when investigating a charge, and compare the effective rate with the model selected for that run.
 
-## Where to set it
-
-The mode and effort picker sits in the chat input in the Studio. Your choice is
-saved to your account and carries across projects and sessions until you change
-it, so set it once and adjust per task.
-
-<Warning>
-If your balance runs low, modes you can no longer afford are locked in the picker
-rather than failing mid-run. Top up with an [add-on pack](/plans-and-credits) to
-unlock them again.
-</Warning>
+Continue with [Writing effective prompts](/prompting) or [Plans and credits](/plans-and-credits).

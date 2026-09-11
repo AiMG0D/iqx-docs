@@ -1,0 +1,35 @@
+---
+sidebarTitle: "Object storage"
+title: "Object storage and uploads"
+description: "Use MinIO-backed S3-compatible storage for application files while keeping storage credentials on the server."
+---
+
+Object storage holds files such as images, documents and exports. IQX supports MinIO as an S3-compatible service. Store file metadata in your application database and file contents in the object store when that fits your app.
+
+## Configure storage
+
+1. Add an available **MinIO** service from [Services](/services).
+2. Wait for readiness and inspect the service's endpoint and credentials.
+3. Configure the application's server-side S3-compatible client for that endpoint.
+4. Create or select the bucket your application will use.
+5. Upload a small test file and verify that the intended user can retrieve it.
+
+Use the connection values shown for your service. Endpoint, bucket, region settings and addressing style must match the storage client and deployment. Do not copy a generic cloud-storage configuration without checking those differences.
+
+## Design the upload flow
+
+For a simple upload, the browser sends a file to an authenticated application endpoint, and the server writes it to storage. For direct uploads, the server can authorize the request and create a short-lived signed upload URL when supported by your implementation.
+
+Keep administrative storage credentials on the server. Validate file size and type, choose a safe object key, and associate the uploaded object with its owner. A random filename alone is not an authorization policy.
+
+## Decide who can download
+
+Use private objects for user documents and other restricted files. Serve them through an authorized backend or a suitably scoped signed URL. Make a bucket or object public only when its contents are intended to be public.
+
+For a public image, verify its URL from a signed-out browser. For a private file, verify that another user cannot access it. Test upload failures and cleanup when an application record is deleted.
+
+## Operate and troubleshoot
+
+Track storage growth and retention separately from application source. Deleting a database record does not automatically delete its object unless the app implements that behavior.
+
+For failed uploads, check bucket existence, credentials, endpoint reachability and request limits. Browser-direct uploads may also require an appropriate CORS configuration. Review [Environment variables](/environment-variables), [Security](/security) and [Usage and billing](/usage-and-billing).

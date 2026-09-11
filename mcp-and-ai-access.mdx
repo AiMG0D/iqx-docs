@@ -1,0 +1,42 @@
+---
+sidebarTitle: "MCP and AI access"
+title: "MCP and AI access"
+description: "Read IQX documentation from AI tools and distinguish documentation MCP from project integrations."
+---
+
+MCP, the Model Context Protocol, lets an AI client access tools and information exposed by a server. The server determines what those tools can do and what authorization they require.
+
+## Read these docs through MCP
+
+IQX documentation is hosted on Mintlify, which exposes a documentation MCP endpoint:
+
+```text
+https://docs.iqx.dev/mcp
+```
+
+In an AI client that supports remote MCP servers, add this URL using that client's documented connection flow. Then ask a documentation question, for example:
+
+```text
+Find the IQX guide for deploying a web app and explain the checks
+I should complete before publishing.
+```
+
+This is **documentation access**. It does not grant access to private IQX projects, run an IQX agent, change billing or deploy an application. Available documentation tools depend on the hosting configuration and the client.
+
+## Other ways to provide documentation context
+
+Use the [documentation index](https://docs.iqx.dev/llms.txt) to find relevant pages, or share a specific guide URL with your assistant. Mintlify also serves Markdown versions of documentation pages, such as [the introduction](https://docs.iqx.dev/introduction.md).
+
+Treat documentation as a reference. Confirm current project state, permissions and costs in IQX before taking an action.
+
+## Connect tools inside IQX
+
+The current IQX product provides [built-in integrations](/integrations), [GitHub sync](/github-sync) and supported [Figma import](/figma) workflows. These have their own account permissions and setup requirements.
+
+<Note>
+IQX does not currently provide a documented, general-purpose self-service screen for attaching arbitrary MCP servers to a Studio project. Use the supported integration flows rather than looking for an MCP settings control that is not available.
+</Note>
+
+A documentation MCP endpoint and a platform editing connection serve different purposes. Editing this documentation requires authorized access to its publishing workflow; adding the public endpoint to a client does not provide that access.
+
+For MCP client configuration details, consult your client's documentation and [Mintlify's MCP guide](https://www.mintlify.com/docs/ai/model-context-protocol).

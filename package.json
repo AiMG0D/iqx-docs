@@ -1,0 +1,16 @@
+{
+  "name": "iqx-docs",
+  "private": true,
+  "scripts": {
+    "dev": "mint dev --port 3100",
+    "validate": "mint validate",
+    "links": "mint broken-links",
+    "check": "npm run validate && npm run links"
+  },
+  "devDependencies": {
+    "mint": "4.2.886"
+  },
+  "engines": {
+    "node": "^22.0.0 || ^24.0.0"
+  }
+}
