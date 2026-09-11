@@ -1,0 +1,43 @@
+---
+sidebarTitle: "Quickstart"
+title: "Build your first app"
+description: "Create a small IQX project, inspect the result in Studio, make a change and prepare it for publishing."
+---
+
+Start with a small application you can test in one sitting. A task tracker, booking form or internal dashboard is easier to validate than an entire business system.
+
+## Before you start
+
+You need an IQX account with access to Studio and available agent credits. If your account shows **Access pending**, follow the early-access instructions for that account. Creating an account does not bypass access approval.
+
+<Steps>
+  <Step title="Describe one useful workflow">
+    Open [IQX](https://iqx.dev) or your [dashboard](https://iqx.dev/dashboard). Enter a concrete prompt:
+
+    ```text
+    Build a task tracker for a small team. A task has a title, status and due
+    date. Start with creating, editing and completing tasks. Use a clean layout
+    that works on phones. Explain how the data is stored and how I can test it.
+    ```
+
+    If sign-in interrupts your first prompt, finish signing in and review the prompt before continuing.
+  </Step>
+  <Step title="Review the agent's work">
+    Studio shows the agent's progress and your project. Let initial setup finish. Resolve any requested decision or connection. Choose an available [agent mode](/agent-models) for subsequent tasks; the picker shows its current credit rate.
+  </Step>
+  <Step title="Test in the preview">
+    Create a task, change its status and refresh. Check that data persists as intended. Test an empty title and a narrow screen as well as the happy path. Use [Troubleshooting](/troubleshooting) if the app does not appear.
+  </Step>
+  <Step title="Make a focused follow-up change">
+    Ask for one change: “Add a filter for overdue tasks. Keep the existing task form and data model.” Review the changed files and repeat the relevant tests.
+  </Step>
+  <Step title="Prepare a release">
+    Check services, environment variables, authentication and the production build. Use [Publish](/deployments) when you are ready to create a public deployment.
+  </Step>
+</Steps>
+
+## Before sharing
+
+Use test data until you have reviewed access control. Verify that a fresh visitor can complete the workflow. Check the credit balance and production usage charges. Keep secrets out of prompts, source files, screenshots and public previews.
+
+Continue with [Studio](/studio), [data services](/services) or [mobile apps](/mobile-apps).

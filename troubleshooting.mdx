@@ -1,0 +1,44 @@
+---
+sidebarTitle: "Troubleshooting"
+title: "Troubleshooting and support"
+description: "Find the right checks for access, agent runs, imports, previews, services and production failures."
+---
+
+Start by identifying where the problem occurs: account access, agent work, the development preview, a service or the public deployment. The same symptom can have different causes in each environment.
+
+<AccordionGroup>
+  <Accordion title="My account shows access pending">
+    Complete the account access process shown by IQX and use the correct signed-in account. A public documentation URL or a different app route does not bypass account approval. If you believe access was already granted, contact support with the account email and visible message.
+  </Accordion>
+  <Accordion title="The agent cannot start or stops early">
+    Check your credit balance, selected model access and project role. Read the run's error before retrying. If the agent made partial changes, inspect them before asking it to continue. For unexpected output, provide the failing step and expected result in a focused follow-up.
+  </Accordion>
+  <Accordion title="A GitHub or ZIP import fails">
+    Confirm repository access and branch selection. For ZIP, use a readable source archive under the compressed upload limit and remove dependencies or generated build folders. Review import findings. After a successful import, configure missing services and environment variables separately.
+  </Accordion>
+  <Accordion title="The preview is blank or the app does not start">
+    Inspect startup and application logs. Check the package scripts, dependency installation, required variables and the first meaningful error. Verify that the expected app process is running before treating a browser refresh as a fix. An imported app may need framework-specific configuration.
+  </Accordion>
+  <Accordion title="A database, integration or upload fails">
+    Check service readiness, active credentials, endpoint and resource permissions. Verify which environment and service received the configuration, then restart or rebuild where required. A missing-table error usually needs a schema check; an authorization error needs an access check.
+  </Accordion>
+  <Accordion title="Publishing fails or production differs from preview">
+    Find the failing release stage and read its logs. Compare production variables and service connections with the app's requirements. Confirm that the latest source was actually published. Test the default deployment URL before troubleshooting a custom domain.
+  </Accordion>
+  <Accordion title="My custom domain does not work">
+    Compare the DNS record with the exact target shown in the Domains panel. Check authoritative DNS, conflicting records and verification status. Allow propagation and certificate setup to complete. If the default app URL also fails, investigate the deployment first.
+  </Accordion>
+  <Accordion title="Figma import or an MCP connection is unavailable">
+    Figma import requires configured tool access and a token permitted to read the file. A dashboard connection alone does not guarantee the import tool is configured. The public docs MCP serves documentation; IQX does not currently expose a general self-service MCP server connection screen. See the dedicated guides before retrying.
+  </Accordion>
+</AccordionGroup>
+
+## Give support a reproducible report
+
+Include the project ID or URL, approximate time and timezone, the action you took, expected behavior, actual behavior and the exact visible error. Say whether it affects preview or production and whether you can repeat it.
+
+A short sequence such as “open Orders, choose Export, receive HTTP 500” is more useful than “the app is broken.” Include relevant log lines or a screenshot after removing secrets and personal data.
+
+Use the support route available in your IQX account or the [community](https://iqx.dev/dashboard?view=community). Report suspected vulnerabilities through [Security](/security). Never post private credentials or another user's data in a public community discussion.
+
+Useful references: [Import](/import), [Services](/services), [Deployments](/deployments), [Figma](/figma), [MCP](/mcp-and-ai-access) and [Usage and billing](/usage-and-billing).

@@ -1,0 +1,39 @@
+---
+sidebarTitle: "GitHub sync"
+title: "Connect and sync GitHub"
+description: "Connect a GitHub account and publish an IQX project to a selected repository and branch."
+---
+
+GitHub sync publishes project source to a repository you control. Use it for a source checkpoint, code review and continued development with your team's normal Git workflow.
+
+Importing a repository and syncing a project are separate actions. To create a project from GitHub, start with [Import an existing project](/import).
+
+## Connect an account
+
+Open the project's **GitHub** panel and choose **Connect GitHub** if no connection is available. Complete the authorization flow with an account that has the required repository access. Signing in to IQX with GitHub does not by itself establish every project sync permission.
+
+For an organization repository, your organization may require approval or additional access. If it is missing from the list, check GitHub permissions before creating a duplicate repository.
+
+## Choose the destination
+
+1. Select the project scope shown in the panel, such as the relevant web or mobile source.
+2. Choose the repository owner.
+3. Select an existing repository or create a new one through the available flow.
+4. Select an existing branch or create a branch for the work.
+5. Review the destination and start **Sync**.
+
+<Warning>
+A sync writes source to the selected repository and branch. Confirm the destination, especially when other people also work on that branch. Use a separate branch when the changes need review.
+</Warning>
+
+## Verify the result
+
+Read the sync status and history. Open the resulting repository and confirm the expected files and commit are present. A successful source sync does not prove that the app builds, that its secrets are configured, or that a production deployment has succeeded.
+
+Keep secrets in [environment variables](/environment-variables). Database contents, service credentials and deployed runtime state are separate from the source checkpoint.
+
+## Working with outside changes
+
+Do not assume this panel continuously pulls or merges changes made on GitHub. Coordinate edits with your team and inspect the project's current source before starting another sync. If you need to bring a different repository snapshot into IQX, use the supported import flow or a deliberate source update.
+
+For a failed sync, check account access, repository ownership, branch selection and the panel's error message. See [Troubleshooting](/troubleshooting) for the details to include when requesting help.

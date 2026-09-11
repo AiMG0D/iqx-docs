@@ -1,0 +1,42 @@
+---
+sidebarTitle: "Environment variables"
+title: "Environment variables and secrets"
+description: "Configure runtime settings and provider credentials without putting secrets into source code or browser bundles."
+---
+
+Environment variables provide configuration to an application or service. Common examples include database connection strings, private API keys and a public site URL. The names your project needs are defined by its code and framework.
+
+## Add or update a variable
+
+1. Open the project's **Services** panel.
+2. Select the application or service that consumes the setting.
+3. Open **Environment** and add or update the variable.
+4. Save the change.
+5. Restart the service to apply runtime changes, as the panel instructs. If the value is consumed during a build, rebuild or republish as appropriate.
+
+Check the service and environment before saving. A value configured for one service does not automatically configure every other service, an Expo build or an external provider.
+
+## Separate public and private configuration
+
+A backend secret belongs on the server. Frontend frameworks often expose variables with specific public prefixes to the browser bundle. Expo also has configuration that can be embedded in a mobile app. Anything distributed to a browser or installed client should be treated as readable by its users.
+
+```text
+Server-only examples: database password, private API key, webhook secret
+Public examples: public site URL, explicitly publishable provider key
+```
+
+These are categories, not a universal list of variable names. Follow the actual framework and provider configuration used by your project.
+
+<Warning>
+Never place a database admin password or provider secret in a public variable, prompt, screenshot, source commit or support message. If a secret is exposed, revoke or rotate it at the provider and update the app.
+</Warning>
+
+## Coordinate integration settings
+
+A [built-in integration](/integrations) can supply credentials through its supported activation flow. Check the active configuration instead of creating conflicting copies under several names. After rotation, test the specific provider action again.
+
+Keep an `.env.example` with variable names and safe placeholder values when useful for collaborators. It should explain required configuration without containing working secrets.
+
+## Troubleshoot missing settings
+
+Check spelling and case, the selected service, whether the app reads the value at build or runtime, and whether a restart or rebuild occurred. Inspect logs without printing secret values. If the preview works but production fails, compare the required configuration in each environment.

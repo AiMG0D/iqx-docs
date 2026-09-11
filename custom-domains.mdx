@@ -1,0 +1,41 @@
+---
+sidebarTitle: "Custom domains"
+title: "Connect a custom domain"
+description: "Attach your domain to a published IQX application and verify DNS and HTTPS setup."
+---
+
+A custom domain points an address you control, such as `app.example.com`, to a published application. First verify that the application's default public URL works. A domain change does not fix a failed deployment.
+
+## Add the domain
+
+1. Open **Services** in the project and select the published application.
+2. Open **Domains**.
+3. Enter the domain or subdomain you want to use.
+4. Read the DNS instructions returned for that application.
+5. Add or update the specified record with the provider that manages your domain's DNS.
+
+Copy the actual record type, host and target shown by IQX. Do not copy a routing target from another project or guess an IP address. Root domains and subdomains can require different record support at your DNS provider.
+
+## Verify routing and HTTPS
+
+Return to the Domains panel and check verification status after the DNS change has propagated. The application must be reachable through the intended domain and have working HTTPS before you share it as the production address.
+
+Test the address from a signed-out browser. Check both the homepage and a nested application route. If you intend to use both a root domain and `www`, configure and test each intended address rather than assuming one automatically covers the other.
+
+## Update app and provider configuration
+
+Review any settings that depend on the public origin:
+
+- Authentication callback and redirect URLs.
+- Payment or other webhook endpoints.
+- Public site URL variables and generated absolute links.
+- Cookie, CORS and allowed-origin settings.
+- Canonical URLs and social sharing metadata in the published app.
+
+Save the relevant configuration and restart or republish when required. Test sign-in and provider callbacks after the domain change.
+
+## Troubleshoot a domain
+
+Check that you changed records at the domain's authoritative DNS provider. Look for conflicting records, a misspelled host, an old target or a proxy setting that does not match the displayed instructions.
+
+DNS updates and certificate provisioning may take time; use the actual status and error message rather than repeatedly deleting and recreating the domain. If the default URL works but the custom domain does not, focus on domain configuration. If both fail, inspect [deployment status](/deployments) and application logs.

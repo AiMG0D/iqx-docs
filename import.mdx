@@ -1,0 +1,38 @@
+---
+sidebarTitle: "Import a project"
+title: "Import an existing project"
+description: "Bring source code into IQX from GitHub or a ZIP archive, then configure and verify the imported app."
+---
+
+You can start from existing source code using **GitHub** or a **ZIP archive**. Import creates an IQX project from that source; it does not automatically move your production database, users or provider accounts.
+
+<Steps>
+  <Step title="Prepare the source">
+    Include application source, the package manifest, lockfile and build configuration. Remove dependency folders, generated builds and secrets. Keep credentials in their provider or secret manager.
+
+    If you are moving from Replit, Lovable or another builder, first export the project to GitHub or a ZIP using that product's supported export flow.
+  </Step>
+  <Step title="Open Import project">
+    From the [IQX dashboard](https://iqx.dev/dashboard), open the import flow. Choose the GitHub or ZIP option that matches your source.
+  </Step>
+  <Step title="Select your source">
+    For GitHub, connect an account with access to the repository and select the repository or enter its URL. Check the branch before importing.
+
+    For ZIP, select a readable `.zip` archive. The compressed upload limit is 60 MB; archive safety and extraction limits also apply. Exclude `node_modules` and build output to keep the archive small.
+  </Step>
+  <Step title="Review and run">
+    Read any import findings, open the project in Studio and inspect the imported files. Check the framework, dependencies and startup configuration, then open the preview.
+  </Step>
+</Steps>
+
+## Reconnect the application
+
+Add required [environment variables](/environment-variables), reconnect external [integrations](/integrations), and create or connect the [services](/services) your application expects. An imported `.env.example` describes required names; it is not a set of working credentials.
+
+If the app needs existing data, plan and test that migration separately. Check the schema and migration scripts before running them against a database. Importing source does not establish a backup or preserve every part of the original hosting environment.
+
+## If import fails
+
+Check repository permissions and the selected branch. For an archive, confirm it contains source files rather than only a built site, and remove dependency caches or unnecessary large assets. Review security findings instead of repeatedly uploading the same blocked file.
+
+Once the preview works, test a complete user workflow. Use [GitHub sync](/github-sync) to publish a source checkpoint and [Deployments](/deployments) when you are ready to publish the app.

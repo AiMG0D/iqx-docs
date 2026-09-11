@@ -1,0 +1,43 @@
+---
+sidebarTitle: "Mobile apps"
+title: "Build mobile apps with Expo"
+description: "Develop Expo and React Native apps in IQX, share a backend with the web and understand mobile publishing."
+---
+
+IQX supports mobile projects built with **Expo and React Native**. Describe screens and device workflows, inspect the source and use the mobile preview while iterating.
+
+## Start a mobile project
+
+Ask explicitly for Expo / React Native when you need a native app. A responsive website is a different deliverable.
+
+```text
+Build an Expo mobile app for logging workouts. Start with a workout list,
+a detail screen and an add-workout form. Use the project backend to store
+records so a web dashboard can use the same data later.
+```
+
+Review navigation, safe areas, touch targets, keyboard behavior and loading states. Test on a real device before release; a browser preview cannot verify every native capability.
+
+## Share a backend
+
+Web and mobile clients can call the same backend. Keep database credentials on the server. Configure an API URL reachable from the device: `localhost` on a phone refers to the phone, not the IQX server.
+
+Use consistent authentication and authorization. Test expired sessions, offline behavior and slow connections.
+
+## Understand Publish Expo
+
+The Publish menu includes an Expo workflow with **Android preview**, **iOS TestFlight**, and **App Store & Play Store** targets, an Expo account connection and a requirements checklist.
+
+<Note>
+Connecting Expo and choosing a target does not by itself submit an app to a store. Check which build and submission actions are available on your deployment, and complete the corresponding Expo and store steps. The current panel is not a guarantee of an end-to-end store release.
+</Note>
+
+| Target | Prepare |
+| --- | --- |
+| Android preview | Expo account, configured Android build and test device |
+| iOS TestFlight | Expo account, Apple developer access and App Store Connect credentials |
+| Public stores | Store accounts, app identifiers, signing credentials, listing text, screenshots and review |
+
+Builds use your Expo account and EAS plan or quota. Store fees and approval decisions belong to those providers. Follow [Expo build documentation](https://docs.expo.dev/build/introduction/) and [submission documentation](https://docs.expo.dev/deploy/submit-to-app-stores/) for current requirements.
+
+If the Expo connection reports unavailable configuration, use [Troubleshooting](/troubleshooting). Do not repeatedly paste tokens into chat or project source.

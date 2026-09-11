@@ -1,0 +1,39 @@
+---
+sidebarTitle: "Figma"
+title: "Bring Figma designs into IQX"
+description: "Use a Figma design as a reference and understand the scope of editable canvas imports."
+---
+
+You can use Figma designs to explain a visual target and, where the Figma import tool is configured, bring supported design elements into the IQX canvas. Import reads the design; it does not write changes back to Figma.
+
+## Prepare a useful design reference
+
+Choose the specific frame that represents the screen you want to build. Provide its Figma design URL, including the node selection when available. State the target viewport and explain which interactions the finished app needs.
+
+For example:
+
+```text
+Use this Figma frame as the reference for the account settings screen.
+Preserve its spacing and typography. Implement the profile form with
+validation and a saved confirmation. Keep the existing authentication flow.
+```
+
+A screenshot can communicate appearance, but it does not provide the same editable structure as an accessible design file.
+
+## What canvas import supports
+
+The import tool maps supported frames, groups, instances, text, rectangles and ellipses into editable canvas elements. It carries over supported sizing, spacing, alignment and layout properties. A URL with a node selection scopes the import; without one, the tool starts from the file's first page.
+
+Complex vector paths, lines, effects and unsupported properties may be skipped or need manual work. Review the import result, font rendering and layout before treating it as a finished design. The result is not a promise of pixel-perfect conversion.
+
+<Note>
+Figma import requires tool availability and a configured token with access to the file. Saving a Figma connection in the dashboard does not currently guarantee that the canvas import tool receives that token. If import reports missing configuration, ask IQX support to check availability. Do not paste a private token into chat.
+</Note>
+
+## Turn a design into an application
+
+Canvas elements are design context. Ask the agent to implement the relevant screen in the app's source, then inspect the running preview. Check forms, navigation, responsive behavior, loading states and accessibility as well as appearance.
+
+A visual import does not generate a working database, authentication flow or payment integration merely because those elements appear in the design.
+
+For access errors, verify the file URL and permissions. For incomplete output, try a smaller frame and review the reported unsupported elements. Continue with [Canvas](/canvas), [Prompting](/prompting) and [Integrations](/integrations).

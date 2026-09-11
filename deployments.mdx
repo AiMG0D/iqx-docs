@@ -1,0 +1,44 @@
+---
+sidebarTitle: "Deployments"
+title: "Publish a web app"
+description: "Move a tested IQX web app from preview to a public deployment and inspect release status."
+---
+
+A preview lets you develop and test a project. Publishing creates or updates the production application at a public URL. Editing source or seeing a successful preview does not by itself confirm a production release.
+
+## Before publishing
+
+Test the main user journey, including a signed-out visit and invalid input. Configure production [environment variables](/environment-variables), [services](/services) and provider credentials. Confirm that sensitive routes and records require the right user permissions.
+
+Review [production usage charges](/usage-and-billing). Agent credits and hosting usage are separate.
+
+<Steps>
+  <Step title="Open Publish">
+    In Studio, open **Publish** and choose the app or website publishing option. For an Expo project, use the separate [mobile workflow](/mobile-apps).
+  </Step>
+  <Step title="Review the application">
+    Confirm the source and application configuration you intend to release. Resolve dependency, build or service errors before continuing.
+  </Step>
+  <Step title="Follow release progress">
+    Start publishing and watch the reported stages. The flow reports source sync, dependency installation, build verification, container replacement and publication. A failed intermediate stage is not a successful release.
+  </Step>
+  <Step title="Verify the public URL">
+    Open the published URL in a signed-out browser. Test a complete workflow, direct navigation to a nested route and the relevant database or integration action.
+  </Step>
+</Steps>
+
+## Release another change
+
+Make the change in Studio, test it in preview and publish the new version. Check production again after the release completes. Use [GitHub sync](/github-sync) for a source checkpoint when you need one; a source commit and a deployed release are separate records.
+
+## Inspect or pause production
+
+Open the application in **Services** to inspect deployment history, logs and monitoring. Use the available lifecycle controls when you need to stop or resume the application. Check the actual state after the action completes.
+
+Stopping application compute does not establish that all associated databases, storage or external services have stopped billing. Review each resource separately before assuming costs have ended.
+
+## Resolve a failed publish
+
+Read the first meaningful build or startup error. Common causes include missing variables, incompatible dependencies, a failing build command or an unavailable service. Fix the cause, verify locally in the project preview and publish again.
+
+After the default public URL works, follow [Custom domains](/custom-domains) to connect your own domain.

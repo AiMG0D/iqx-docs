@@ -1,0 +1,35 @@
+---
+sidebarTitle: "Web apps"
+title: "Build web applications"
+description: "Create browser applications with routes, data, authentication and a tested production build."
+---
+
+IQX can help build dashboards, customer portals, storefronts and internal tools. Describe the workflow and its data. Inspect the generated stack and source rather than assuming every project uses the same framework.
+
+## Start with a working slice
+
+Ask for one route with a complete interaction. For a customer portal, that could be signing in and viewing the current customer's records. Specify which records each user can see and how errors should appear.
+
+Include mobile browser behavior: navigation, forms, tables and dialogs should remain usable on narrow screens.
+
+## Add server behavior and persistence
+
+Use a backend for actions needing secrets or privileged access. Connect a [database](/databases) for records and [object storage](/object-storage) for uploads. The browser should call authenticated server endpoints instead of receiving database credentials.
+
+The agent can write queries, migrations and handlers, but you still need to review the model and test authorization. Creating a database service does not automatically create the correct schema or import existing records.
+
+## Configure the runtime
+
+Check dependency, build and start commands. If the preview does not load, inspect application logs and the expected listening port. An imported project may need adaptations for its new hosting environment.
+
+Keep credentials in [environment variables](/environment-variables). Variables exposed to the browser must contain public values only.
+
+## Test before publishing
+
+- Complete the main workflow with a fresh account or browser session.
+- Test invalid input, empty data and failed network requests.
+- Confirm data persists after refresh and is isolated between users.
+- Run the production build, not only the development server.
+- Check the public deployment after [publishing](/deployments).
+
+For a native mobile experience, share the backend API with an [Expo app](/mobile-apps). Do not copy privileged database logic into a client.
